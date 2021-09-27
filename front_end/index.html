@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="welcome">
+        <div class="login">
+            <form class="form">
+                <input id="phone" name="phone" type="text" placeholder="请输入手机号"/>
+                <br />
+                <input id="pwd2" name="pwd2" type="text" placeholder="请输入验证码"/>
+                <br />
+                <div id="remenber">
+                    记住我&nbsp;&nbsp;<input type="radio"/>
+                    <button type="button" id="rem_btn" class="rembtn">验证码登录</button>
+                </div>
+                <br />
+                <input id="btn" type="submit" value="登录"/>
+            </form>
+         </div>
+    </div>
+      <script> 
+    //验证手机号
+function checkPhone(phone){ 
+	if(phone.length==0){ 
+		alert('手机号码不能为空！');
+		return false; 
+	}
+	if(phone.length!=11){ 
+		alert('请输入有效的手机号码，需是11位！');
+		return false; 
+	} 
+	//手机号正则
+	var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+	if(!myreg.test(phone)){ 
+		alert('请输入有效的手机号码！'); 
+		return false; 
+	} 
+}
+//点击验证码登录，密码框隐藏，验证码框显示
+$('.rembtn').click(function(event){
+	//获取电话
+	let phone = $('#phone').val();
+	if(checkPhone(phone)){
+		//向服务端发送请求
+		$.get("http://127.0.0.1:3000/checkCode",{tel:phone},function(data){
+			console.log(data);
+		});
+	}
+});
+
+    </script>
+     <script src="js/jQuery.js"></script>
+</body>
+</html>

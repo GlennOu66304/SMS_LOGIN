@@ -6,6 +6,7 @@ admin/main.vue
 ```
 <span @click="$router.push('/login')">退出</span>
 ```
+
 ## Cookie JWT
 ### Cannot find module 'bcrypt'
 [Cannot find module 'bcrypt'](https://stackoverflow.com/questions/34546272/cannot-find-module-bcrypt)  
@@ -20,13 +21,13 @@ code :[node-express-jwt-auth](https://github.com/iamshaunjp/node-express-jwt-aut
 
 You need to run the front end page in the dev server, not in the productions server.
 
-
 ## Logout feature 
 
 mongodb + vue + node.js ---> 
 [How to log out when using JWT](https://medium.com/devgorilla/how-to-log-out-when-using-jwt-a8c7823e8a6)   
 [How to destroy JWT Tokens on logout?](https://stackoverflow.com/questions/37959945/how-to-destroy-jwt-tokens-on-logout)   
 [Invalidating JSON Web Tokens](https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens?page=1&tab=votes#tab-top)  
+
 ## Token expire
 ```
 jwt.sign({
